@@ -17,6 +17,10 @@ module.exports = {
   ],
   // add your custom rules here
   'rules': {
+    // require semicolons after all statements
+    'semi': 0,
+    'comma-dangle': 0,
+    'dot-location': 0,
     // allow paren-less arrow functions
     'arrow-parens': 0,
     // allow async-await
