@@ -1,11 +1,16 @@
 <template>
   <div id="factions">
-    <div v-for="faction in factions" :key="faction.name">{{faction}}</div>
+    <doom-track></doom-track>
+    <faction v-for="faction in factions" :faction="faction" :key="faction.name"></faction>
   </div>
 </template>
 
 <script>
+import DoomTrack from './Game/DoomTrack';
+import Faction from './Game/Faction';
+
 export default {
+  components: {DoomTrack, Faction},
   name: 'HelloWorld',
   data () {
     return {
@@ -17,7 +22,7 @@ export default {
       return (
         Object.keys(this.$store.state.factions).
         map((factionName) => ({
-          factionName,
+          name: factionName,
           ...this.$store.state.factions[factionName]
         }))
       );
