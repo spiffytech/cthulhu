@@ -14,5 +14,6 @@ export default {
 body {
   background-image: url('http://orig03.deviantart.net/9112/f/2013/149/3/2/cthulhu_wars___shub_niggurath_by_butttornado-d671keh.jpg');
   background-size: cover;
+  color: white;
 }
 </style>

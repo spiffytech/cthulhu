@@ -6,7 +6,9 @@
       <faction v-for="faction in factions" :faction="faction" :key="faction.name"></faction>
     </div>
     <div class="container">
-      <button class="button" @click="showFactions()">Show All</button>  <button class="button" @click="resetGame()">Reset Game</button>
+      <button class="button" @click="showFactions()">Show All</button>
+      <button class="button" @click="resetGame()">Reset Game</button>
+      <button class="button" @click="resetRitual">Reset Ritual</button>
     </div>
   </div>
 </template>
@@ -41,7 +43,10 @@ export default {
     },
     resetGame () {
       this.$store.commit('resetGame');
-    }
+    },
+    resetRitual () {
+      this.$store.commit('incrRituals', -this.$store.state.ritualsTaken);
+    },
   }
 }
 </script>
