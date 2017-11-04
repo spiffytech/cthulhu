@@ -1,7 +1,12 @@
 <template>
-  <div id="factions">
+  <div id="factions" class="main">
     <doom-track></doom-track>
-    <faction v-for="faction in factions" :faction="faction" :key="faction.name"></faction>
+    <div class="container">
+      <faction v-for="faction in factions" :faction="faction" :key="faction.name"></faction>
+    </div>
+    <div class="container">
+      <button class="button" @click="resetGame()">Reset</button>
+    </div>
   </div>
 </template>
 
@@ -27,10 +32,30 @@ export default {
         }))
       );
     }
+  },
+  methods: {
+    resetGame () {
+      this.$store.commit('resetGame');
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.main {
+  background-color:rgba(0,0,0,0.85);
+}
+
+.container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+.button {
+  background-color:rgba(0,0,0,0);
+  border: none;
+  color: red;
+}
 </style>
