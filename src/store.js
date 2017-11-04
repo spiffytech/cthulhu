@@ -7,6 +7,14 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   plugins: [createPersistedState()],
   state: {
+    rituals: {
+      three: [5, 6, 7, 8, 9, 10],
+      four: [5, 6, 7, 7, 8, 8, 9, 10],
+      five: [5, 6, 6, 7, 7, 8, 8, 9, 9, 10],
+      six: [5, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 10],
+      seven: [5, 6, 6, 6, 7, 7, 7, 8, 8, 8, 9, 9, 9, 10],
+      eight: [5, 6, 6, 6, 7, 7, 7, 7, 8, 8, 8, 8, 9, 9, 9, 10],
+    },
     factions: {
       blackGoat: {
         friendlyName: 'Black Goat',
@@ -78,8 +86,11 @@ const store = new Vuex.Store({
     hideFaction (state, faction) {
       state.factions[faction].inUse = false;
     },
-    resetGame (state) {
+    showFactions (state) {
       Object.keys(state.factions).forEach(factionname => { state.factions[factionname].inUse = true });
+    },
+    resetGame (state) {
+      Object.keys(state.factions).forEach(factionname => { state.factions[factionname].doom = 0; state.factions[factionname].signs = 0; state.factions[factionname].gates = 0; state.factions[factionname].inUse = true });
     }
   },
   actions: {
